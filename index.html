@@ -2,78 +2,96 @@
 <html>
     <head>
         <title>Dessert Selections</title>
-        <link rel="stylesheet" type="text/css" >
+        <style type="text/css">
+          button {
+            margin-left: 10px;
+            margin-bottom: 20px;
+          }
+      
+          button:first-child {
+            margin-left: 0;
+          }
+        </style>
     </head>
 
 <body>
-        <form id="food-form">
-
+    <div class="container">
+        <form id="carnival-form">
                 <!-- Label for Text Box -->
-                <label for="food-input">Add a dessert or food item</label>
-            
+                <label for="item">Add an item from any carnival</label>
                 <!-- Text Input Box -->
-                <input type="text" id="food-input"><br>
-            
-                <!-- Submit Button -->
-                <input id="select-food" type="submit" value="send">
+                <input type="text" id="input"><br>
               </form>
-            
-              <!-- Food Information -->
-              <div id="food-div"></div> 
+             
+            <br />
+                <button id="carnivalbtn">Submit</button>
+                
+              <!-- adds buttons -->
+              <div id="additem"></div> 
               <br>
-
-	<!-- buttons that user will click on -->
-	<button id="1-button">something</button>
-	<button id="2-button">something</button>
-	<button id="3-button">something</button>
-	<button id="4-button">something</button>
-	<button id="5-button">something</button>
-	<button id="6-button">something</button>
-	<button id="7-button">something</button>
-	<button id="8-button">something</button>
+              <div id="moreitems"></div> 
 
 <div id="images1">
   </div>
   <div id="images2">
   </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" >
+  var topics = ["cotton candy", "ring master", "circus", "outdoor", "hot sun", "games", "balloons", "basketball hoop", "stuffed animals", "couples"];
    
+    var button2;
+    for (var index in topics){
+        button2 = $('<button>').text(topics[index]);
+        //<button>The Matrix</button>
+        $('#additem').append(button2);
+      }
+
+      $('#carnivalbtn').on('click', function(){
+        var topic = $('#input').val();
+
+        topics.push(topic);
+
+        var button2 = $('<button>').text(topic);
+        $('#moreitems').append(button2);
+      });
+
+    
     // Event listener for our 1-button
-    $("#1-button").on("click", function() {
+    // $("#1-button").on("click", function() {
 
-      // Storing our giphy API URL for a random 1st image
-      var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=horse";
+    //   // Storing our giphy API URL for a random 1st image
+    //   var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=horse";
 
-      // Perfoming an AJAX GET request to our queryURL
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
+    //   // Perfoming an AJAX GET request to our queryURL
+    //   $.ajax({
+    //     url: queryURL,
+    //     method: "GET"
+    //   })
 
-      // After the data from the AJAX request comes back
-        .then(function(response) {
-          console.log(response);
+    //   // After the data from the AJAX request comes back
+    //     .then(function(response) {
+    //       console.log(response);
 
-        // Saving the image_original_url property
-          var imageUrl = response.data.image_original_url;
+    //     // Saving the image_original_url property
+    //       var imageUrl = response.data.image_original_url;
 
-          // Creating and storing an image tag
-          var button_1 = $("<img>");
+    //       // Creating and storing an image element
+    //       var button_1 = $("<img>");
 
-          // Setting the button_1 src attribute to imageUrl
-          button_1.attr("src", imageUrl);
-          button_1.attr("alt", "first image");
+    //       // Setting the button_1 src attribute to imageUrl
+    //       button_1.attr("src", imageUrl);
+    //       button_1.attr("alt", "first image");
 
-          // Prepending the button_1 to the images div
-          $("#images1").prepend(button_1);
-        });
-    });
+    //       // Prepending the button_1 to the images div
+    //       $("#images1").prepend(button_1);
+    //     });
+    // });
 
     
 </script>
-
+</div>
 </body>
 
 </html>
