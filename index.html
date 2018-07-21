@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Dessert Selections</title>
+        <title>The Carnival's In Town!</title>
         <style type="text/css">
+        body {
+          background-size: cover;
+        }
           button {
             margin-left: 10px;
             margin-bottom: 20px;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            opacity: 0.9;
+            color: white;
+            background-color: rgb(248, 106, 248);
+            box-shadow: 0 12px 16px 0 rgb(248, 106, 248), 0 17px 50px 0 rgb(248, 106, 248);
+
           }
-      
+          button:hover {
+            background-color: white;
+            opacity: 0.7;
+            color: cyan;
+          }
           button:first-child {
             margin-left: 0;
+          }
+          label {
+            color: white;
+          }
+          form {
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+          #carnivalbtn, #additem, #moreitems {
+            margin-left: 20px;
+          }
+          #input {
+            opacity: 0.6;
+            padding-top: 15px;
+            padding-left: 15px;
+          }
+          #additems {
+            margin-right: 20px;
           }
         </style>
     </head>
 
-<body>
+<body background="assets/css/carnival_3.jpg">
     <div class="container">
         <form id="carnival-form">
                 <!-- Label for Text Box -->
-                <label for="item">Add an item from any carnival</label>
+                
+                <label for="item"><h1>Add an item from any carnival</h1></label>
+
+                <textarea class="form-control" id="input" rows="2" cols="30"></textarea>
+              
                 <!-- Text Input Box -->
-                <input type="text" id="input"><br>
+                <!-- <input type="text" id="input" rows="2" cols="45"><br> -->
               </form>
              
             <br />
