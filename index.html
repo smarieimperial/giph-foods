@@ -16,7 +16,6 @@
             color: white;
             background-color: rgb(248, 106, 248);
             box-shadow: 0 12px 16px 0 rgb(248, 106, 248), 0 17px 50px 0 rgb(248, 106, 248);
-
           }
           button:hover {
             background-color: white;
@@ -45,88 +44,123 @@
           #additems {
             margin-right: 20px;
           }
+          #images1 {
+            width: 80px;
+            height: 80px;
+          }
         </style>
     </head>
 
 <body background="assets/css/carnival_3.jpg">
     <div class="container">
-        <form id="carnival-form">
-                <!-- Label for Text Box -->
-                
-                <label for="item"><h1>Add an item from any carnival</h1></label>
 
-                <textarea class="form-control" id="input" rows="2" cols="30"></textarea>
-              
-                <!-- Text Input Box -->
-                <!-- <input type="text" id="input" rows="2" cols="45"><br> -->
-              </form>
-             
+        <form id="carnival-form">
+            <label for="item"><h1>Add an item from any carnival</h1></label>
+            <!-- Text Input Box -->
+            <textarea class="form-control" id="input" rows="2" cols="30"></textarea>
+        </form>
             <br />
-                <button id="carnivalbtn">Submit</button>
-                
+            <button id="carnivalbtn">submit</button>
+
               <!-- adds buttons -->
               <div id="additem"></div> 
               <br>
               <div id="moreitems"></div> 
 
-<div id="images1">
-  </div>
-  <div id="images2">
-  </div>
+      <div id="images1"></div>
+      <div id="images2"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" >
-  var topics = ["cotton candy", "ring master", "circus", "outdoor", "hot sun", "games", "balloons", "basketball hoop", "stuffed animals", "couples"];
+  var topics = ["cotton candy", "psychic", "circus", "clowns", "games", "balloons", "stuffed animals"];
    
     var button2;
-    for (var index in topics){
-        button2 = $('<button>').text(topics[index]);
-        //<button>The Matrix</button>
-        $('#additem').append(button2);
-      }
+      for (var index in topics){
+          button2 = $('<button>').text(topics[index]);
+          //<button>cotton candy</button>
+          $('#additem').append(button2);
+        }
 
-      $('#carnivalbtn').on('click', function(){
-        var topic = $('#input').val();
+        $('#carnivalbtn').on('click', function(){
+          var topic = $('#input').val();
 
-        topics.push(topic);
+          topics.push(topic);
 
-        var button2 = $('<button>').text(topic);
-        $('#moreitems').append(button2);
+          var button2 = $('<button>').text(topic);
+          $('#moreitems').append(button2);
+        });
+
+    //  6. Add a form to your page takes the value from a user input box and adds it into
+    //   your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
+
+    // Event listener for our #carnivalbtn which is the submit button
+    $("#carnivalbtn").on("click", function() {
+     
+      // Storing our giphy API URL for a random 1st image (circus)
+      var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=circus";
+
+      // Perfoming an AJAX GET request to our queryURL
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      // After the data from the AJAX request comes back
+        .then(function(response) {
+          console.log(response);
+
+        // Saving the image_original_url property
+          var imageUrl = response.data.image_original_url;
+
+          // Creating and storing an image element
+          var button1 = $("<img>");
+
+          // Setting the button1 src attribute to imageUrl
+          button1.attr("src", imageUrl);
+          button1.attr("alt", "first image");
+
+          // Prepending the button1 to the images1 div
+          $("#images1").prepend(button1);
+        });
+    });
+
+// 3. When the user clicks on a button, the page should grab 10 static, 
+//  non-animated gif images from the GIPHY API and place them on the page.
+
+// 4. When the user clicks one of the still GIPHY images, the gif should animate. 
+//  If the user clicks the gif again, it should stop playing.
+
+      // Event listener for our existing buttons 
+      $("#additem").on("click", function() {
+
+      // Storing our giphy API URL for a random 1st image (balloons)
+      var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=balloons";
+
+      // Perfoming an AJAX GET request to our queryURL
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+      })
+
+        // After the data from the AJAX request comes back
+        .then(function(response) {
+          console.log(response);
+
+          // Saving the image_original_url property
+          var imageUrl = response.data.image_original_url;
+
+          // Creating and storing an image element
+          var button1 = $("<img>");
+
+          // Setting the button_1 src attribute to imageUrl
+          button1.attr("src", imageUrl);
+          button1.attr("alt", "first image");
+
+          // Prepending the button_1 to the images div
+          $("#images1").prepend(button1);
+        });
       });
-
-    
-    // Event listener for our 1-button
-    // $("#1-button").on("click", function() {
-
-    //   // Storing our giphy API URL for a random 1st image
-    //   var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=horse";
-
-    //   // Perfoming an AJAX GET request to our queryURL
-    //   $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    //   })
-
-    //   // After the data from the AJAX request comes back
-    //     .then(function(response) {
-    //       console.log(response);
-
-    //     // Saving the image_original_url property
-    //       var imageUrl = response.data.image_original_url;
-
-    //       // Creating and storing an image element
-    //       var button_1 = $("<img>");
-
-    //       // Setting the button_1 src attribute to imageUrl
-    //       button_1.attr("src", imageUrl);
-    //       button_1.attr("alt", "first image");
-
-    //       // Prepending the button_1 to the images div
-    //       $("#images1").prepend(button_1);
-    //     });
-    // });
-
     
 </script>
 </div>
