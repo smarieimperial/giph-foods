@@ -1,7 +1,12 @@
 body {
     background-size: cover;
+    font-family: 'Candal', sans-serif;
   }
+#carnival-form {
+  font-family: 'Candal', sans-serif;
+}
     button {
+      font-family: 'Candal', sans-serif;
       margin-left: 10px;
       margin-bottom: 20px;
       border-radius: 4px;
