@@ -5,6 +5,9 @@ body {
 #carnival-form {
   font-family: 'Candal', sans-serif;
 }
+form {
+  margin-bottom:  30px;
+}
     button {
       font-family: 'Candal', sans-serif;
       margin-left: 10px;
