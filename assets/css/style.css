@@ -36,7 +36,7 @@ form {
       margin-left: 20px;
       margin-right: 20px;
     }
-    #carnivalbtn, #additem, #moreitems {
+    #submit-btn, #additem, #moreitems {
       margin-left: 20px;
     }
     #input {
@@ -47,12 +47,28 @@ form {
     #additems {
       margin-right: 20px;
     }
-    #images1, #images2 {
-        margin-left: 20px;
+    #images1 {
+      padding: 5px;
+      margin-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       width: 80px;
       height: 80px;
       float: left;
     }
+    #images2 {
+      margin-left: 20px;
+      width: 80px;
+      height: 80px;
+      float: left;
+      clear: both;
+    }
     h3 {
       color: white;
+    }
+    footer {
+      
+    }
+    img {
+      margin-bottom: 20px;
     }
