@@ -7,26 +7,32 @@
     </head>
 
 <body background="assets/css/carnival_3.jpg">
+
     <div class="container">
 
-        <form id="carnival-form">
-            <label for="item"><h1>Add an item from any carnival</h1></label>
-            <!-- Text Input Box -->
-            <textarea class="form-control" id="input" rows="2" cols="30"></textarea>
-        </form>
-            <!-- <br /> --> 
-            <!-- aded a margin in css instead of br -->
-            <button id="submit-btn">submit</button>
+          <form id="carnival-form">
+              <label for="item"><h1>Add an item from any carnival</h1></label>
+              <!-- Text Input Box -->
+              <textarea class="form-control" id="input" rows="2" cols="30"></textarea>
+          </form>
+            
+                <!-- added a margin in css instead of br -->
+                <button id="submit-btn">submit</button>
 
-              <!-- adds buttons -->
-              <div id="additem"></div> 
-              <br>
-              <div id="moreitems"></div> 
+                <!-- adds buttons this is where the 'topics' array will go -->
+                <div id="additem"></div> 
 
-              <!-- adds images to html -->
-              <div id="images1"></div>
-              <div id="images2"></div>
+                <br>
+                
+                <!-- this is where the 'Add an item from any carnival' buttons go that the User creates -->
+                <div id="moreitems"></div> 
+
+                <!-- adds images to html -->
+                <div id="images1"></div>
+
+
     </div> <!-- end of .container -->
+    
     <footer></footer>
    
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
